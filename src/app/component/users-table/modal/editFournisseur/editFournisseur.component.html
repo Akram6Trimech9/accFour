@@ -1,0 +1,89 @@
+<div class="container">
+    <form [formGroup]="fornisseurForm" (ngSubmit)="onSubmit()" class="chauffeur-form">
+        <div class="form-group">
+          <label for="firstName">Prénom</label>
+          <input id="firstName" formControlName="firstName" />
+          <div *ngIf="fornisseurForm.get('firstName')?.touched && fornisseurForm.get('firstName')?.invalid">
+            <small *ngIf="fornisseurForm.get('firstName')?.errors?.['required']">Le prénom est requis</small>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Nom de famille</label>
+            <input id="lastName" formControlName="lastName" />
+            <div *ngIf="fornisseurForm.get('lastName')?.touched && fornisseurForm.get('lastName')?.invalid">
+              <small *ngIf="fornisseurForm.get('lastName')?.errors?.['required']">Le nom de famille est requis</small>
+            </div>
+          </div>
+        <div class="form-group">
+          <label for="cin">CIN</label>
+          <input id="cin" formControlName="cin" />
+          <div *ngIf="fornisseurForm.get('cin')?.touched && fornisseurForm.get('cin')?.invalid">
+            <small *ngIf="fornisseurForm.get('cin')?.errors?.['required']">CIN est requis</small>
+          </div>
+        </div>
+      
+        <div class="form-group">
+          <label for="mobile">Mobile</label>
+          <input id="mobile" formControlName="mobile" />
+          <div *ngIf="fornisseurForm.get('mobile')?.touched && fornisseurForm.get('mobile')?.invalid">
+            <small *ngIf="fornisseurForm.get('mobile')?.errors?.['required']">Le numéro de mobile est requis</small>
+            <small *ngIf="fornisseurForm.get('mobile')?.errors?.['pattern']">Numéro de mobile invalide</small>
+          </div>
+        </div>
+      
+      
+      
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" formControlName="email" />
+          <div *ngIf="fornisseurForm.get('email')?.touched && fornisseurForm.get('email')?.invalid">
+            <small *ngIf="fornisseurForm.get('email')?.errors?.['required']">L'adresse email est requise</small>
+            <small *ngIf="fornisseurForm.get('email')?.errors?.['email']">Adresse email invalide</small>
+          </div>
+        </div>
+      
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input id="address" formControlName="address" />
+          <div *ngIf="fornisseurForm.get('address')?.touched && fornisseurForm.get('address')?.invalid">
+            <small *ngIf="fornisseurForm.get('address')?.errors?.['required']">L Address est requis</small>
+          </div>
+        </div>
+      
+        <div class="form-group">
+          <label for="credit">Credit</label>
+          <input id="credit" formControlName="credit" />
+          <div *ngIf="fornisseurForm.get('credit')?.touched && fornisseurForm.get('credit')?.invalid">
+            <small *ngIf="fornisseurForm.get('credit')?.errors?.['required']">Le credit est requise</small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="chauffeur">Choisissez un chauffeur</label>
+          <select id="chauffeur" formControlName="chauffeur" class="form-select">
+            <option *ngFor="let item of chauffeurs" [value]="item._id">{{item.firstName}} {{item.lastName}}</option>
+          </select>
+          <div *ngIf="fornisseurForm.get('chauffeur')?.touched && fornisseurForm.get('chauffeur')?.invalid">
+            <small *ngIf="fornisseurForm.get('chauffeur')?.errors?.['required']">chauffeur est requise</small>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="photo">Photo</label>
+            <input id="photo" type="file" (change)="onFileChange($event)" />
+            <div *ngIf="selectedFileBase64 ; else template">
+                <img [src]="selectedFileBase64" class="img-thumbnail" alt="Chauffeur Photo" style="border: 1px solid grey ; padding: 5px ; margin: 5px; margin-top: 12px; width: 100px; height: auto;">
+            </div>
+            <ng-template #template >
+                <img [src]="fornisseurForm.get('photo')?.value ? fornisseurForm.get('photo')?.value : data.fournisseur.photo" class="img-thumbnail" alt="Chauffeur Photo" style="border: 1px solid grey ; padding: 5px ; margin: 5px; margin-top: 12px; width: 100px; height: auto;">
+
+            </ng-template>
+            <div *ngIf="fornisseurForm.get('photo')?.touched && fornisseurForm.get('photo')?.invalid">
+                <small *ngIf="fornisseurForm.get('photo')?.errors?.['required']">La photo est requise</small>
+            </div>
+        </div>
+        
+      
+        
+        <button type="submit" [disabled]="fornisseurForm.invalid">Soumettre</button>
+      </form>
+  </div>
+  

@@ -1,0 +1,29 @@
+<div class="historique-container">
+  <div class="search-container">
+    <input type="text" [(ngModel)]="searchQuery" (input)="search()" placeholder="Search..." class="search-input">
+  </div>
+   <div class="credit-history">
+    <div class="history-item" *ngFor="let item of creditHistory">
+      <div class="user-details">
+        <img [src]="item.fournisseur.photo" alt="User Profile Picture" class="profile-picture">
+        <div class="user-info">
+          <h2>{{ item.fournisseur.firstName }}</h2>
+          <p>{{ item.fournisseur.email }}</p>
+        </div>
+      </div>
+      <div class="transaction-details">
+        <div class="item-date">{{ item.createdAt | date: 'shortDate' }}</div>
+        <div *ngIf="item.method" class="item-description">{{ item.method }}</div>
+        <div *ngIf="!item.method" class="item-description">mt ajouté</div>
+
+        <div class="item-amount" [ngClass]="{'positive': item.type === 'credit', 'negative': item.type === 'debit'}">
+          {{ item.amount | currency }}
+        </div>
+        <div class="item-amount " style="margin-left: 15px;" >
+          <span (click)="deleteHistorique(item._id)"><i style="color: rgb(64, 57, 90) ; cursor: pointer;" class="fas fa-trash"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>

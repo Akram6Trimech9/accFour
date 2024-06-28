@@ -1,0 +1,138 @@
+/* Container styling */
+.historique-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Search bar styling */
+.search-container {
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+  outline: none;
+}
+
+/* Title styling */
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 2em;
+}
+
+/* Credit history styling */
+.credit-history {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Individual history item styling */
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* User details styling */
+.user-details {
+  display: flex;
+  align-items: center;
+}
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Make the image circular */
+  margin-right: 15px;
+}
+
+/* User info styling */
+.user-info h2 {
+  margin-bottom: 5px;
+  font-size: 1.2em;
+}
+
+.user-info p {
+  margin: 0;
+  color: #666;
+}
+
+/* Transaction details styling */
+.transaction-details {
+  display: flex;
+  align-items: center;
+}
+
+/* Date styling */
+.item-date {
+  color: #666;
+  font-size: 0.9em;
+}
+
+/* Description styling */
+.item-description {
+  flex: 1;
+  text-align: left;
+  margin: 0 10px;
+  color: #555;
+}
+
+/* Amount styling */
+.item-amount {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.item-amount.positive {
+  color: #28a745;
+}
+
+.item-amount.negative {
+  color: #dc3545;
+}
+
+/* Pagination styling */
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+}
+
+.page-item {
+  margin: 0 5px;
+}
+
+.page-link {
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.page-link:hover {
+  color: #007bff;
+}
+
+.page-link:focus {
+  outline: none;
+}
+
+.active .page-link {
+  font-weight: bold;
+}
